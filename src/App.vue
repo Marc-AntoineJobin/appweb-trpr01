@@ -8,11 +8,16 @@ import Footer from "./components/Footer.vue";
 
 
 <template>
+  <div class="border rounded">
   <Header/>
-  <BookList/>
+    <BookList/>
+  </div>
   <Footer/>
 </template>
 
 
 <style scoped>
+.app-container {
+  background-color: #001f3f; /* Bleu foncé */
+}
 </style>
