@@ -30,7 +30,7 @@ const confirmDelete = () => {
         <p>Stock: {{ stock }}</p>
       </div>
       <div class="col-md-3 text-end">
-        <button @click.stop data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger btn-sm">Supprimer?</button>
+        <button @click.stop data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger btn-sm">Supprimer?</button><!--TODO bouton dupliquer le livre-->
       </div>
     </div>
   </div>

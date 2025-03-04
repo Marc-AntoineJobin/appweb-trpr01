@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BookComponent from './BookComponent.vue';
+import ExportCsv from './exportCsv.vue';
 import { reactive, ref } from 'vue';
 import type { Book } from '../scripts/types';
 
@@ -24,7 +25,7 @@ const books = ref<Book[]>([
   }
 ]);
 
-const selectedBook = reactive<Book>({ id: 1, title: "Lord of The Rings", description: "Très bon livre!", price: 20.00, stock: 25 });
+const selectedBook = reactive<Book>({ id: 1, title: "Lord of The Rings", description: "Very good book!", price: 20.00, stock: 25 });
 const newBookTitle = ref('');
 const newBookDescription = ref('');
 const newBookPrice = ref(0);
@@ -83,8 +84,8 @@ const updateSelectedBook = () => {
 const saveSelectedBook = () => {
   if (validateInfo(selectedBook)) {
     updateSelectedBook();
-  } else { //https://getbootstrap.com/docs/4.0/components/modal/
-    //TODO message derreur
+  } else {
+    alert("Veuillez remplir tous les champs correctement.");
   }
 };
 </script>
@@ -93,7 +94,7 @@ const saveSelectedBook = () => {
   <div class="container">
       <div class="row">
           <div class="col-md-7">
-            <h3 class="mt-4">Liste des livres</h3>
+            <h3 class="mt-4">Liste des livres          <ExportCsv :books="books" class="mb-3" /></h3>
             <h4>cliquer pour sélectionner</h4>
               <div class="book-list__books">
                   <BookComponent
@@ -110,7 +111,7 @@ const saveSelectedBook = () => {
               </div>
           </div>
           <div class="col-md-5">
-            <h3 class=" mt-4">Modification du livre</h3>
+            <h3 class="mt-4">Modification du livre</h3>
               <div class="book-list__selected p-3 border rounded bg-light">
                 <div class="input-group mb-2">
                     <span class="input-group-text">Titre:</span>
@@ -160,15 +161,11 @@ const saveSelectedBook = () => {
             <textarea v-model="newBookDescription" class="form-control" rows="2"></textarea>
           </div>
           <button @click="addBook" class="mb-3 mt-3 btn btn-primary">Ajouter le livre</button>
-      </div>
+      </div> <!-- TODO LIST
+                  meilleure message de validation,
+                  confirmation lors de supprimer un livre -->
   </div>
 </template>
-
-<style scoped>
-.text-danger {
-  color: red;
-}
-</style>
 
 <style scoped>
 .text-danger {
