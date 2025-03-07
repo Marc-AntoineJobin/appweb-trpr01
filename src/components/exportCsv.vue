@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, defineProps } from 'vue'
+import {defineProps } from 'vue'
 import { unparse } from 'papaparse'
 import { saveAs } from 'file-saver'
 
