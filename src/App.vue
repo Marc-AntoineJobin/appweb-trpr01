@@ -6,17 +6,20 @@ import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 </script>
 
-
 <template>
-  <body class="border rounded">
-  <div>
-  <Header/>
-    <BookList/>
+  <div class="d-flex flex-column min-vh-100">
+    <header >
+      <Header/>
+    </header>
+    <main class="flex-grow-1">
+      <BookList/>
+    </main>
+    <footer class="d-flex justify-content-center align-items-center mt-auto">
+      <Footer/>
+    </footer>
   </div>
-</body>
-  <Footer/>
 </template>
 
-
 <style scoped>
+/* Ajoutez des styles supplémentaires si nécessaire */
 </style>

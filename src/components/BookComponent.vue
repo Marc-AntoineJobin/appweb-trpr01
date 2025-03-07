@@ -9,13 +9,32 @@ const props = defineProps<{
   stock: number;
 }>();
 
-const emit = defineEmits(['click', 'delete']);
+const emit = defineEmits(['click', 'delete', 'duplicate']);
 
 const confirmDelete = () => {
   emit('delete', props.id);
 };
-</script>
 
+const duplicateBook = () => {
+  emit('duplicate', {
+    id: props.id,
+    title: props.title,
+    description: props.description,
+    price: props.price,
+    stock: props.stock
+  });
+};
+
+const stockClass = () => {
+  if (props.stock === 0) {
+    return 'bg-danger text-white rounded';
+  } else if (props.stock > 0 && props.stock < 10) {
+    return 'bg-warning text-dark rounded';
+  } else {
+    return 'bg-success text-white rounded';
+  }
+};
+</script>
 
 <template>
   <div class="container">
@@ -27,10 +46,11 @@ const confirmDelete = () => {
         <p>Prix: {{ price }}</p>
       </div>
       <div class="col-md-2">
-        <p>Stock: {{ stock }}</p>
+        <p :class="['p-2', stockClass()]">Stock: {{ stock }}</p>
       </div>
       <div class="col-md-3 text-end">
-        <button @click.stop data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger btn-sm">Supprimer?</button><!--TODO bouton dupliquer le livre-->
+        <button @click.stop data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger btn-sm">Supprimer?</button>
+        <button @click.stop="duplicateBook" class="btn btn-secondary btn-sm ms-2 mt-2">Dupliquer</button>
       </div>
     </div>
   </div>
@@ -54,3 +74,6 @@ const confirmDelete = () => {
     </div>
   </div>
 </template>
+
+<style scoped>
+</style>
