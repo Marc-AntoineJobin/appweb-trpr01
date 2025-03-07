@@ -11,7 +11,7 @@ const books = ref<Book[]>([
   { id: 3, title: "La femme qui fuit", description: "Pas de mon gout...", price: 18.00, stock: 5 }
 ]);
 
-const selectedBook = reactive<Book>({ id: 1, title: "Lord of The Rings", description: "Very good book!", price: 20.00, stock: 25 });
+const selectedBook = reactive<Book>({ id: 1, title: "Lord of The Rings", description: "Très bon livre!", price: 20.00, stock: 25 });
 const saveBookError = ref('');
 const searchQuery = ref('');
 
