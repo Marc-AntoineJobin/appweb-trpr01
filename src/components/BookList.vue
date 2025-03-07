@@ -35,6 +35,15 @@ const saveSelectedBook = () => {
   }
 };
 
+const deleteBook = (id: number) => {
+  books.value = books.value.filter(book => book.id !== id);
+};
+
+const duplicateBook = (book: Book) => {
+  const newBook = { ...book, id: books.value.length + 1 };
+  books.value.push(newBook);
+};
+
 const filteredBooks = computed(() => {
   return books.value.filter(book => 
     book.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
@@ -56,6 +65,8 @@ const filteredBooks = computed(() => {
             :key="book.id"
             v-bind="book"
             @click="selectBook(book)"
+            @delete="deleteBook"
+            @duplicate="duplicateBook"
           />
         </div>
       </div>
@@ -82,7 +93,7 @@ const filteredBooks = computed(() => {
     <AddBook :books="books" />
   </div>
 
-  <!-- Modal de confirmation pour la modification -->
+  <!-- Modal https://getbootstrap.com/docs/4.0/components/modal/ tout pris de la-->
   <div class="modal fade" id="saveBookModal" tabindex="-1" aria-labelledby="saveBookModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -102,7 +113,6 @@ const filteredBooks = computed(() => {
     </div>
   </div>
 
-  <!-- Modal pour stock zéro -->
   <div class="modal fade" id="stockZeroModal" tabindex="-1" aria-labelledby="stockZeroModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
