@@ -49,8 +49,8 @@ const stockClass = () => {
         <p :class="['p-2', stockClass()]">Stock: {{ stock }}</p>
       </div>
       <div class="col-md-3 text-end">
-        <button @click.stop="duplicateBook" class="btn btn-secondary btn-sm me-2">Dupliquer</button>
-        <button @click.stop data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger btn-sm">Supprimer?</button>
+        <button @click.stop="duplicateBook" class="btn btn-secondary btn-sm me-2">Dupliquer</button> <!--https://vuejs.org/guide/essentials/event-handling-->
+        <button @click.stop data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger mt-2 btn-sm">Supprimer?</button>
       </div>
     </div>
   </div>

@@ -1,6 +1,4 @@
-# Vue 3 + TypeScript + Vite
+URL du repo: https://github.com/Marc-AntoineJobin/appweb-trpr01
+URL du site: URL du site: https://marc-antoinejobin.github.io/appweb-trpr01/
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
-URL du site: https://marc-antoinejobin.github.io/appweb-trpr01/ 
+C'est le site de gestion de stock de la librairie Duchêne. Ce site permet de gérer le stock des livres, donc d'en ajouter, changer les livres existant, exporter en CSV, rechercher les livres, etc. Lorsque j'ai utilisé l'IA, c'est mentionné dans le code, mais en gros je l'ai utilisé pour generer l'image du site, l'export en csv et la recherche. Je l'ai aussi utilisé parfois pour me débloquer, car je ne trouvais vraiment pas mon erreur. Les sources générales sont aussi un peu partout dans mon code.
